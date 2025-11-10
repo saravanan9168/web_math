@@ -1,0 +1,12 @@
+target
+.mvn
+.idea
+.git
+target/
+**/target
+*.log
+*.tmp
+out
+build
+Dockerfile
+.dockerignore

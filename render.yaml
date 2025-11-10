@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: web-math-calculator
+    runtime: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    region: oregon
+    branch: main
+    autoDeploy: true
+    # When using Docker runtime, Render will build the image using the Dockerfile.
+    # The app listens on $PORT inside the container; Dockerfile maps that to EXPOSE.
+    envVars: []
