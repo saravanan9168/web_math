@@ -4,9 +4,9 @@ FROM maven:3.9.5-eclipse-temurin-17 AS build
 WORKDIR /workspace
 
 # Copy only Maven files first to leverage Docker layer caching for deps
+# Copy Maven POM only first to leverage Docker layer caching for dependencies
+# (don't copy a non-existent .mvn directory; it's optional)
 COPY pom.xml .
-# If you have a .mvn directory include it (optional)
-COPY .mvn .mvn
 
 # Download dependencies
 RUN mvn -B -DskipTests dependency:go-offline
